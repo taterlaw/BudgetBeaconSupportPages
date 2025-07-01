@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Budget Beacon</n>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Beacon</title>
   <style>
     :root {
       --primary: #0066ff;
@@ -73,7 +73,6 @@
     .cta-btn:hover {
       background: #0051cc;
     }
-    /* Hero */
     .hero {
       display: flex;
       flex-direction: column;
@@ -97,7 +96,6 @@
       border-radius: 20px;
       box-shadow: 0 4px 8px var(--shadow);
     }
-    /* Features */
     .features {
       padding: 4rem 0;
       background: var(--text-light);
@@ -126,7 +124,6 @@
       font-size: 0.95rem;
       line-height: 1.4;
     }
-    /* Footer */
     footer {
       background: var(--text-dark);
       color: var(--text-light);
@@ -153,9 +150,8 @@
       <nav>
         <div class="logo">Budget Beacon</div>
         <div class="nav-links" id="navLinks">
-          <a href="#features">Features</a>
-          <a href="#download">Download</a>
-          <a href="#contact">Contact</a>
+          <a href="#" id="mainLink">Main</a>
+          <a href="privacy.html">Privacy Policy</a>
         </div>
         <div class="menu-toggle" id="menuToggle">
           &#9776;
@@ -163,45 +159,41 @@
       </nav>
     </div>
   </header>
-
   <section class="hero">
     <h1>Illuminate Your Spending</h1>
     <p>Budget Beacon connects to your Apple Card transactions to provide clear monthly budgets, reveal spending spikes, track your favorite stores, and deliver an effortless user experience.</p>
     <button class="cta-btn">Download on the App Store</button>
-    <img src="https://via.placeholder.com/400x800" alt="App Screenshot" />
+    <img src="https://via.placeholder.com/400x800" alt="App Screenshot">
   </section>
-
   <section class="features container" id="features">
     <h2 style="text-align:center; margin-bottom:2rem;">Key Features</h2>
     <div class="feature-grid">
       <div class="feature-card">
-        <img src="https://via.placeholder.com/64" alt="Budgets Icon" />
+        <img src="https://via.placeholder.com/64" alt="Budgets Icon">
         <h3>Monthly Budgets</h3>
         <p>Set, view, and adjust budgets for every category, ensuring you stay on track each month.</p>
       </div>
       <div class="feature-card">
-        <img src="https://via.placeholder.com/64" alt="Spikes Icon" />
+        <img src="https://via.placeholder.com/64" alt="Spikes Icon">
         <h3>Spending Spikes</h3>
         <p>Instantly spot unusual spending patterns and spikes to help control impulse purchases.</p>
       </div>
       <div class="feature-card">
-        <img src="https://via.placeholder.com/64" alt="Store Tracking Icon" />
+        <img src="https://via.placeholder.com/64" alt="Store Tracking Icon">
         <h3>Store Tracking</h3>
         <p>Monitor transactions by merchant to understand where your money goes—down to the last coffee run.</p>
       </div>
       <div class="feature-card">
-        <img src="https://via.placeholder.com/64" alt="Interface Icon" />
+        <img src="https://via.placeholder.com/64" alt="Interface Icon">
         <h3>Intuitive Interface</h3>
         <p>Experience a clean and simple design that makes budgeting feel effortless and even enjoyable.</p>
       </div>
     </div>
   </section>
-
   <footer>
     <p>&copy; 2025 Budget Beacon. All rights reserved.</p>
     <p id="contact">Questions? Email us at <a href="mailto:support@budgetbeacon.app" style="color:var(--primary);">support@budgetbeacon.app</a></p>
   </footer>
-
   <script>
     // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
@@ -209,6 +201,13 @@
     menuToggle.addEventListener('click', () => {
       const isVisible = navLinks.style.display === 'flex';
       navLinks.style.display = isVisible ? 'none' : 'flex';
+    });
+    
+    // Main link reload
+    const mainLink = document.getElementById('mainLink');
+    mainLink.addEventListener('click', e => {
+      e.preventDefault();
+      window.location.reload();
     });
   </script>
 </body>
