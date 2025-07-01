@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Beacon</n>
+  <style>
+    :root {
+      --primary: #0066ff;
+      --secondary: #f5f7fa;
+      --text-dark: #333;
+      --text-light: #fff;
+      --card-bg: #fff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: var(--secondary);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--text-light);
+      box-shadow: 0 2px 4px var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .cta-btn {
+      background: var(--primary);
+      color: var(--text-light);
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .cta-btn:hover {
+      background: #0051cc;
+    }
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 1rem;
+      background: var(--secondary);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+    .hero img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px var(--shadow);
+    }
+    /* Features */
+    .features {
+      padding: 4rem 0;
+      background: var(--text-light);
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
+      transition: transform 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    .feature-card h3 {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+    }
+    .feature-card p {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    /* Footer */
+    footer {
+      background: var(--text-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Budget Beacon</div>
+        <div class="nav-links" id="navLinks">
+          <a href="#features">Features</a>
+          <a href="#download">Download</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+          &#9776;
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Illuminate Your Spending</h1>
+    <p>Budget Beacon connects to your Apple Card transactions to provide clear monthly budgets, reveal spending spikes, track your favorite stores, and deliver an effortless user experience.</p>
+    <button class="cta-btn">Download on the App Store</button>
+    <img src="https://via.placeholder.com/400x800" alt="App Screenshot" />
+  </section>
+
+  <section class="features container" id="features">
+    <h2 style="text-align:center; margin-bottom:2rem;">Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <img src="https://via.placeholder.com/64" alt="Budgets Icon" />
+        <h3>Monthly Budgets</h3>
+        <p>Set, view, and adjust budgets for every category, ensuring you stay on track each month.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://via.placeholder.com/64" alt="Spikes Icon" />
+        <h3>Spending Spikes</h3>
+        <p>Instantly spot unusual spending patterns and spikes to help control impulse purchases.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://via.placeholder.com/64" alt="Store Tracking Icon" />
+        <h3>Store Tracking</h3>
+        <p>Monitor transactions by merchant to understand where your money goes—down to the last coffee run.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://via.placeholder.com/64" alt="Interface Icon" />
+        <h3>Intuitive Interface</h3>
+        <p>Experience a clean and simple design that makes budgeting feel effortless and even enjoyable.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Budget Beacon. All rights reserved.</p>
+    <p id="contact">Questions? Email us at <a href="mailto:support@budgetbeacon.app" style="color:var(--primary);">support@budgetbeacon.app</a></p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const isVisible = navLinks.style.display === 'flex';
+      navLinks.style.display = isVisible ? 'none' : 'flex';
+    });
+  </script>
+</body>
+</html>
