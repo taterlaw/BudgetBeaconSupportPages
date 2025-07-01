@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Budget Beacon</title>
+  <style>
+    :root {
+      --primary: #0066ff;
+      --secondary: #f5f7fa;
+      --text-dark: #333;
+      --text-light: #fff;
+      --card-bg: #fff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background: var(--secondary); color: var(--text-dark); line-height: 1.6; }
+    header { background: var(--text-light); box-shadow: 0 2px 4px var(--shadow); position: sticky; top: 0; z-index: 1000; }
+    .container { max-width: 1200px; margin: auto; padding: 0 1rem; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+    .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--primary); }
+    footer { background: var(--text-dark); color: var(--text-light); text-align: center; padding: 2rem 1rem; }
+    footer p { font-size: 0.9rem; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: block; cursor: pointer; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Budget Beacon</div>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Main</a>
+          <a href="#privacy">Privacy Policy</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+          &#9776;
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main class="container" style="padding:4rem 0;">
+    <h1 id="privacy">Privacy Policy</h1>
+    <!-- Privacy policy content goes here -->
+  </main>
+  <footer>
+    <p>&copy; 2025 Budget Beacon. All rights reserved.</p>
+    <p>Questions? Email us at <a href="mailto:support@budgetbeacon.app" style="color:var(--primary);">support@budgetbeacon.app</a></p>
+  </footer>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const isVisible = navLinks.style.display === 'flex';
+      navLinks.style.display = isVisible ? 'none' : 'flex';
+    });
+  </script>
+</body>
+</html>
