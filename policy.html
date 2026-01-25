@@ -3,171 +3,318 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Budget Beacon — Privacy Policy</title>
+  <title>Privacy Policy - Budget Beacon</title>
   <style>
     :root {
-      --primary-color: #005f73;
-      --accent-color: #0a9396;
-      --bg-light: #f0f0f0;
+      --primary: #0066ff;
+      --primary-dark: #0051cc;
+      --secondary: #f5f7fa;
       --text-dark: #333;
       --text-light: #fff;
-      --max-width: 960px;
+      --card-bg: #fff;
+      --shadow: rgba(0, 0, 0, 0.1);
     }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
-
     body {
-      font-family: -apple-system, sans-serif;
-      line-height: 1.6;
-      background: var(--bg-light);
+      background: var(--secondary);
       color: var(--text-dark);
+      line-height: 1.6;
     }
-
     header {
-      background: var(--primary-color);
-      color: var(--text-light);
-      padding: 1rem 2rem;
+      background: var(--text-light);
+      box-shadow: 0 2px 4px var(--shadow);
       position: sticky;
       top: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      z-index: 1000;
     }
-
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
-    }
-
-    nav a {
-      color: var(--text-light);
-      margin-left: 1.5rem;
+      color: var(--primary);
       text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
       font-weight: 500;
+      transition: color 0.3s;
     }
-
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    .page-header {
+      background: linear-gradient(135deg, var(--secondary) 0%, #e8f0fe 100%);
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 2.5rem;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+    .page-header p {
+      color: #666;
+      font-size: 1rem;
+    }
     main {
-      max-width: var(--max-width);
+      max-width: 800px;
       margin: 2rem auto;
-      padding: 1.5rem;
-      background: var(--text-light);
-      border-radius: 8px;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px var(--shadow);
     }
-
-    h1, h2 {
-      color: var(--primary-color);
+    .policy-section {
+      margin-bottom: 2rem;
+    }
+    .policy-section:last-child {
+      margin-bottom: 0;
+    }
+    .policy-section h2 {
+      color: var(--primary);
+      font-size: 1.35rem;
       margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--secondary);
     }
-
-    p, ul {
+    .policy-section p {
       margin-bottom: 1rem;
+      color: #444;
     }
-
-    ul {
+    .policy-section ul {
+      margin-bottom: 1rem;
       padding-left: 1.5rem;
-      list-style-type: disc;
     }
-
+    .policy-section li {
+      margin-bottom: 0.5rem;
+      color: #444;
+    }
+    .policy-section a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .policy-section a:hover {
+      text-decoration: underline;
+    }
+    .highlight-box {
+      background: var(--secondary);
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1rem 0;
+    }
+    .highlight-box p {
+      margin: 0;
+      color: #333;
+    }
     footer {
-      background: var(--primary-color);
+      background: var(--text-dark);
       color: var(--text-light);
       text-align: center;
-      padding: 1rem 2rem;
+      padding: 2rem 1rem;
+    }
+    footer p {
       font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    footer a {
+      color: var(--primary);
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--text-light);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 8px var(--shadow);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      main {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <span class="logo">Budget Beacon</span>
-    <nav>
-      <a href="index.html">Main</a>
-      <a href="policy.html">Privacy Policy</a>
-    </nav>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Budget Beacon</a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#privacy">Privacy</a>
+          <a href="policy.html">Privacy Policy</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <div class="page-header">
     <h1>Privacy Policy</h1>
+  </div>
 
-    <h2>1. Introduction</h2>
-    <p>
-      Welcome to Budget Beacon. We respect your privacy and are committed to protecting your personal
-      data. This Privacy Policy explains how we collect, use, and safeguard your information when
-      you link your Apple Card transactions within our iOS app.
-    </p>
+  <main>
+    <section class="policy-section">
+      <h2>1. Introduction</h2>
+      <p>
+        Welcome to Budget Beacon. We are committed to protecting your privacy. This Privacy Policy explains
+        how we handle your information when you use our personal budgeting app for iPhone.
+      </p>
+      <div class="highlight-box">
+        <p><strong>Key Point:</strong> Budget Beacon is designed with privacy at its core. All your financial data stays on your device and is never uploaded to any servers.</p>
+      </div>
+    </section>
 
-    <h2>2. Data We Collect</h2>
-    <p>When you choose to link your Apple Card in Budget Beacon, we collect:</p>
-    <ul>
-      <li>Transaction dates and amounts</li>
-      <li>Merchant names and categories</li>
-      <li>Account balances and spending summaries</li>
-    </ul>
-    <p>
-      All data is retrieved directly from Apple’s secure APIs; we do not collect any banking
-      credentials or card numbers.
-    </p>
+    <section class="policy-section">
+      <h2>2. Data We Access</h2>
+      <p>When you authorize Budget Beacon to access your Apple Wallet via FinanceKit, we can view:</p>
+      <ul>
+        <li>Transaction dates, amounts, and types (credit/debit)</li>
+        <li>Merchant names and merchant category codes</li>
+        <li>Transactions from Apple Card, Apple Cash, and Apple Savings</li>
+      </ul>
+      <p>
+        We do not access your card numbers, CVV codes, PINs, or any banking credentials. All data is retrieved
+        through Apple's secure FinanceKit framework.
+      </p>
+    </section>
 
-    <h2>3. How We Use Your Data</h2>
-    <p>We use your transaction data solely to:</p>
-    <ul>
-      <li>Generate monthly budget overviews</li>
-      <li>Detect and highlight spending spikes</li>
-      <li>Track spending by store or category</li>
-      <li>Provide insights through our intuitive interface</li>
-    </ul>
-    <p>
-      Your data is never sold or shared with third parties for marketing or advertising.
-    </p>
+    <section class="policy-section">
+      <h2>3. How We Use Your Data</h2>
+      <p>Your transaction data is used exclusively within the app to:</p>
+      <ul>
+        <li>Display your transactions and organize them by category</li>
+        <li>Calculate spending against your budget categories</li>
+        <li>Automatically categorize transactions based on merchant codes</li>
+        <li>Show spending overviews, progress bars, and projections</li>
+        <li>Analyze top merchants and detect potential subscriptions</li>
+        <li>Generate QR codes for sharing budget templates (categories only, no transaction data)</li>
+      </ul>
+      <p>
+        Your data is never sold, shared with third parties, or used for advertising purposes.
+      </p>
+    </section>
 
-    <h2>4. Data Storage & Security</h2>
-    <p>
-      All transaction data is encrypted in transit and at rest using industry-standard encryption
-      (AES-256). We follow Apple’s best practices for secure storage on device. Only you can view
-      your financial information, and it remains on your iPhone unless you explicitly export it.
-    </p>
+    <section class="policy-section">
+      <h2>4. Data Storage</h2>
+      <div class="highlight-box">
+        <p><strong>On-Device Only:</strong> All your data is stored locally on your iPhone. There is no cloud sync, no backup to external servers, and no account creation required.</p>
+      </div>
+      <p>This means:</p>
+      <ul>
+        <li>Your financial data never leaves your device</li>
+        <li>We cannot access your data remotely</li>
+        <li>Data does not sync between devices</li>
+        <li>If you delete the app, all data is permanently removed</li>
+        <li>The app tracks current month transactions only</li>
+      </ul>
+    </section>
 
-    <h2>5. Third-Party Services</h2>
-    <p>
-      We rely on Apple’s Wallet and Card APIs to access your transaction history. Budget Beacon does
-      not share your data with any other external services.
-    </p>
+    <section class="policy-section">
+      <h2>5. Third-Party Services</h2>
+      <p>
+        Budget Beacon relies solely on Apple's FinanceKit to access your Apple Wallet transaction data.
+        We do not integrate with any other third-party services, analytics platforms, or advertising networks.
+      </p>
+    </section>
 
-    <h2>6. Your Choices</h2>
-    <ul>
-      <li>You can revoke Budget Beacon’s access to your Apple Card transactions at any time via your
-          iOS Settings.</li>
-      <li>Unlinking your card will immediately delete locally stored transaction data within the
-          app.</li>
-    </ul>
+    <section class="policy-section">
+      <h2>6. Your Choices & Control</h2>
+      <ul>
+        <li><strong>Revoke Access:</strong> You can revoke Budget Beacon's access to your Apple Wallet at any time through your iPhone's Settings app.</li>
+        <li><strong>Delete Data:</strong> Uninstalling the app will permanently delete all locally stored data.</li>
+        <li><strong>Category Management:</strong> You control all budget categories and can edit, delete, or reset them at any time.</li>
+        <li><strong>Merchant Mappings:</strong> You can override automatic categorization by manually assigning merchants to categories.</li>
+      </ul>
+    </section>
 
-    <h2>7. Children’s Privacy</h2>
-    <p>
-      Budget Beacon is intended for users aged 18 and over. We do not knowingly collect data from
-      minors.
-    </p>
+    <section class="policy-section">
+      <h2>7. No Notifications</h2>
+      <p>
+        Budget Beacon does not send push notifications. The app operates entirely on-demand when you open it.
+      </p>
+    </section>
 
-    <h2>8. Changes to This Policy</h2>
-    <p>
-      We may update this Privacy Policy from time to time. If we make material changes, we will
-      notify you via an in-app alert or push notification.
-    </p>
+    <section class="policy-section">
+      <h2>8. Children's Privacy</h2>
+      <p>
+        Budget Beacon is intended for users aged 18 and over. We do not knowingly collect or process
+        data from minors.
+      </p>
+    </section>
 
-    <h2>9. Contact Us</h2>
-    <p>
-      If you have questions about this policy or our data practices, please contact us at
-      <a href="mailto:support@budgetbeacon.app">support@budgetbeacon.app</a>.
-    </p>
+    <section class="policy-section">
+      <h2>9. Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. Any changes will be reflected on this page
+        with an updated revision date. Since the app does not collect contact information, we encourage
+        you to review this policy periodically.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>10. Contact Us</h2>
+      <p>
+        If you have questions about this Privacy Policy or how Budget Beacon handles your data,
+        please contact us at <a href="mailto:mares-04.canon@icloud.com">mares-04.canon@icloud.com</a>.
+      </p>
+    </section>
   </main>
 
   <footer>
-    &copy; 2025 Budget Beacon. All rights reserved.
+    <p>&copy; 2025 Budget Beacon. All rights reserved.</p>
+    <p>Questions? Email us at <a href="mailto:mares-04.canon@icloud.com">mares-04.canon@icloud.com</a></p>
+    <p style="margin-top: 1rem;"><a href="policy.html">Privacy Policy</a></p>
   </footer>
 
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>

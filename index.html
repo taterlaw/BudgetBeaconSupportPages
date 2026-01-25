@@ -3,21 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Budget Beacon</title>
+  <title>Budget Beacon - Personal Budgeting for iPhone</title>
   <style>
     :root {
       --primary: #0066ff;
+      --primary-dark: #0051cc;
       --secondary: #f5f7fa;
       --text-dark: #333;
       --text-light: #fff;
       --card-bg: #fff;
       --shadow: rgba(0, 0, 0, 0.1);
+      --green: #34c759;
+      --orange: #ff9500;
+      --red: #ff3b30;
     }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
     body {
       background: var(--secondary);
@@ -63,15 +67,18 @@
     .cta-btn {
       background: var(--primary);
       color: var(--text-light);
-      padding: 0.6rem 1.2rem;
+      padding: 0.75rem 1.5rem;
       border: none;
-      border-radius: 4px;
+      border-radius: 8px;
       cursor: pointer;
       font-weight: 600;
+      font-size: 1rem;
       transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
     }
     .cta-btn:hover {
-      background: #0051cc;
+      background: var(--primary-dark);
     }
     .hero {
       display: flex;
@@ -79,22 +86,51 @@
       align-items: center;
       text-align: center;
       padding: 4rem 1rem;
-      background: var(--secondary);
+      background: linear-gradient(135deg, var(--secondary) 0%, #e8f0fe 100%);
     }
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+    .hero .tagline {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-weight: 500;
     }
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 2rem;
-      max-width: 600px;
+      max-width: 650px;
+      color: #555;
     }
-    .hero img {
-      width: 100%;
-      max-width: 400px;
+    .hero-badges {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .badge {
+      background: var(--text-light);
+      padding: 0.4rem 0.8rem;
       border-radius: 20px;
-      box-shadow: 0 4px 8px var(--shadow);
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      box-shadow: 0 2px 4px var(--shadow);
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-title h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-title p {
+      color: #666;
+      font-size: 1.1rem;
     }
     .features {
       padding: 4rem 0;
@@ -102,27 +138,110 @@
     }
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
     .feature-card {
       background: var(--card-bg);
       padding: 2rem;
-      border-radius: 12px;
+      border-radius: 16px;
       box-shadow: 0 4px 12px var(--shadow);
       transition: transform 0.3s;
+      border: 1px solid #eee;
     }
     .feature-card:hover {
       transform: translateY(-5px);
     }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
     .feature-card h3 {
-      margin-top: 1rem;
       font-size: 1.25rem;
+      margin-bottom: 0.75rem;
     }
     .feature-card p {
-      margin-top: 0.5rem;
       font-size: 0.95rem;
-      line-height: 1.4;
+      line-height: 1.5;
+      color: #555;
+    }
+    .feature-card ul {
+      margin-top: 0.75rem;
+      padding-left: 1.25rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .feature-card li {
+      margin-bottom: 0.25rem;
+    }
+    .privacy-section {
+      padding: 4rem 0;
+      background: var(--secondary);
+    }
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .privacy-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--text-light);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+    .privacy-item .icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+    .privacy-item h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .privacy-item p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .requirements {
+      padding: 4rem 0;
+      background: var(--text-light);
+    }
+    .requirements-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .requirements-content p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .wallet-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .wallet-item {
+      text-align: center;
+    }
+    .wallet-item .icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .wallet-item span {
+      font-size: 0.9rem;
+      color: #555;
     }
     footer {
       background: var(--text-dark);
@@ -132,14 +251,36 @@
     }
     footer p {
       font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    footer a {
+      color: var(--primary);
+    }
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
     }
     @media (max-width: 768px) {
       .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--text-light);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 8px var(--shadow);
+      }
+      .nav-links.active {
+        display: flex;
       }
       .menu-toggle {
         display: block;
-        cursor: pointer;
+      }
+      .hero h1 {
+        font-size: 2rem;
       }
     }
   </style>
@@ -150,64 +291,168 @@
       <nav>
         <div class="logo">Budget Beacon</div>
         <div class="nav-links" id="navLinks">
-          <a href="#" id="mainLink">Main</a>
+          <a href="#" id="mainLink">Home</a>
+          <a href="#features">Features</a>
+          <a href="#privacy">Privacy</a>
           <a href="policy.html">Privacy Policy</a>
         </div>
-        <div class="menu-toggle" id="menuToggle">
-          &#9776;
-        </div>
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
       </nav>
     </div>
   </header>
+
   <section class="hero">
-    <h1>Illuminate Your Spending</h1>
-    <p>Budget Beacon connects to your Apple Card transactions to provide clear monthly budgets, reveal spending spikes, track your favorite stores, and deliver an effortless user experience.</p>
-    <button class="cta-btn">Download on the App Store</button>
-    <img src="https://via.placeholder.com/400x800" alt="App Screenshot">
+    <h1>Budget Beacon</h1>
+    <p class="tagline">Personal Budgeting for iPhone</p>
+    <p>Connect to your Apple Wallet to track spending and stay within your monthly budgets. Budget Beacon automatically pulls transactions from Apple Card, Apple Cash, and Apple Savings to give you complete visibility into your finances.</p>
+    <div class="hero-badges">
+      <span class="badge">Apple Card</span>
+      <span class="badge">Apple Cash</span>
+      <span class="badge">Apple Savings</span>
+    </div>
+    <a href="#" class="cta-btn">Download on the App Store</a>
   </section>
+
   <section class="features container" id="features">
-    <h2 style="text-align:center; margin-bottom:2rem;">Key Features</h2>
+    <div class="section-title">
+      <h2>Core Features</h2>
+      <p>Everything you need to manage your monthly budget</p>
+    </div>
     <div class="feature-grid">
       <div class="feature-card">
-        <img src="https://via.placeholder.com/64" alt="Budgets Icon">
-        <h3>Monthly Budgets</h3>
-        <p>Set, view, and adjust budgets for every category, ensuring you stay on track each month.</p>
+        <div class="feature-icon">📊</div>
+        <h3>Budget Categories</h3>
+        <p>Create custom monthly spending categories with a name, icon, budget amount, and color. Edit or delete categories anytime.</p>
+        <ul>
+          <li>Default categories included (Groceries, Eating Out, Transport, etc.)</li>
+          <li>View all transactions per category</li>
+        </ul>
       </div>
       <div class="feature-card">
-        <img src="https://via.placeholder.com/64" alt="Spikes Icon">
-        <h3>Spending Spikes</h3>
-        <p>Instantly spot unusual spending patterns and spikes to help control impulse purchases.</p>
+        <div class="feature-icon">💳</div>
+        <h3>Transaction Tracking</h3>
+        <p>Pulls transactions directly from Apple Wallet via FinanceKit. View your full transaction list with merchant name, amount, date, and type.</p>
+        <ul>
+          <li>Search by merchant name</li>
+          <li>Filter by date, type, or category</li>
+        </ul>
       </div>
       <div class="feature-card">
-        <img src="https://via.placeholder.com/64" alt="Store Tracking Icon">
-        <h3>Store Tracking</h3>
-        <p>Monitor transactions by merchant to understand where your money goes—down to the last coffee run.</p>
+        <div class="feature-icon">🤖</div>
+        <h3>Auto-Categorization</h3>
+        <p>Transactions are automatically sorted into budget categories based on merchant codes. Override with custom merchant mappings anytime.</p>
       </div>
       <div class="feature-card">
-        <img src="https://via.placeholder.com/64" alt="Interface Icon">
-        <h3>Intuitive Interface</h3>
-        <p>Experience a clean and simple design that makes budgeting feel effortless and even enjoyable.</p>
+        <div class="feature-icon">📈</div>
+        <h3>Spending Overview</h3>
+        <p>See how much you've spent vs. your budget in each category. Progress bars with color coding show your spending status at a glance.</p>
+        <ul>
+          <li>Total remaining budget summary</li>
+          <li>Projected month-end spending</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏪</div>
+        <h3>Merchant Analysis</h3>
+        <p>View your top spending merchants for the current month with month-over-month comparisons. Automatic detection of potential subscriptions.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📲</div>
+        <h3>Import & Export</h3>
+        <p>Share your budget template with others via QR code. Scan a QR code to instantly import someone else's budget categories.</p>
       </div>
     </div>
   </section>
+
+  <section class="privacy-section" id="privacy">
+    <div class="container">
+      <div class="section-title">
+        <h2>Your Data Stays Yours</h2>
+        <p>Privacy-first design means your financial data never leaves your device</p>
+      </div>
+      <div class="privacy-grid">
+        <div class="privacy-item">
+          <div class="icon">📱</div>
+          <h4>On-Device Only</h4>
+          <p>All data stays on your iPhone</p>
+        </div>
+        <div class="privacy-item">
+          <div class="icon">🚫</div>
+          <h4>No Account Required</h4>
+          <p>Start using immediately</p>
+        </div>
+        <div class="privacy-item">
+          <div class="icon">☁️</div>
+          <h4>No Cloud Sync</h4>
+          <p>Nothing uploaded to servers</p>
+        </div>
+        <div class="privacy-item">
+          <div class="icon">🔐</div>
+          <h4>Apple Wallet Auth</h4>
+          <p>Secure FinanceKit access</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="requirements">
+    <div class="container">
+      <div class="section-title">
+        <h2>Works With Apple Wallet</h2>
+        <p>Budget Beacon connects to your Apple Wallet transactions</p>
+      </div>
+      <div class="requirements-content">
+        <p>Requires Apple Wallet authorization to access transaction data. Works exclusively with Apple Card, Apple Cash, and Apple Savings accounts.</p>
+        <div class="wallet-icons">
+          <div class="wallet-item">
+            <div class="icon">💳</div>
+            <span>Apple Card</span>
+          </div>
+          <div class="wallet-item">
+            <div class="icon">💵</div>
+            <span>Apple Cash</span>
+          </div>
+          <div class="wallet-item">
+            <div class="icon">🏦</div>
+            <span>Apple Savings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2025 Budget Beacon. All rights reserved.</p>
-    <p id="contact">Questions? Email us at <a href="mailto:support@budgetbeacon.app" style="color:var(--primary);">support@budgetbeacon.app</a></p>
+    <p>Questions? Email us at <a href="mailto:mares-04.canon@icloud.com">mares-04.canon@icloud.com</a></p>
+    <p style="margin-top: 1rem;"><a href="policy.html">Privacy Policy</a></p>
   </footer>
+
   <script>
-    // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
+
     menuToggle.addEventListener('click', () => {
-      const isVisible = navLinks.style.display === 'flex';
-      navLinks.style.display = isVisible ? 'none' : 'flex';
+      navLinks.classList.toggle('active');
     });
-    
-    // Main link reload
+
     const mainLink = document.getElementById('mainLink');
     mainLink.addEventListener('click', e => {
       e.preventDefault();
-      window.location.reload();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+            navLinks.classList.remove('active');
+          }
+        }
+      });
     });
   </script>
 </body>
